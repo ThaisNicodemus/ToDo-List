@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A simple place to capture and manage your tasks." />
+    <title>Daylist — To Do</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <p class="eyebrow">A small plan for a clear day</p>
+        <h1>What needs doing?</h1>
+        <p class="intro">Capture the next thing, then get back to it.</p>
+      </header>
+
+      <section class="task-panel" aria-labelledby="task-form-heading">
+        <h2 id="task-form-heading" class="visually-hidden">Add a task</h2>
+
+        <form id="task-form" class="task-form" novalidate>
+          <label for="task-title">New task</label>
+          <div class="input-row">
+            <input
+              id="task-title"
+              name="tittle"
+              type="text"
+              maxlength="200"
+              placeholder="e.g. Review the project brief"
+              autocomplete="off"
+              aria-describedby="form-message"
+              required
+            />
+            <button id="add-button" type="submit">Add task</button>
+          </div>
+          <p id="form-message" class="message" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="list-heading">
+          <h2>Your tasks</h2>
+          <span id="task-count" aria-live="polite">0 tasks</span>
+        </div>
+
+        <div id="loading-state" class="state-message">Loading tasks…</div>
+        <div id="empty-state" class="empty-state" hidden>
+          <span class="empty-icon" aria-hidden="true">✓</span>
+          <h3>Nothing on the list</h3>
+          <p>Add a task above and give your day a little direction.</p>
+        </div>
+        <ul id="task-list" class="task-list" aria-label="Task list"></ul>
+      </section>
+    </main>
+  </body>
+</html>
